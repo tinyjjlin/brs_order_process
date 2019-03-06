@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brs.orderinfo.persistence.dao.OrderDao">
+
+
+    <insert id="createNewOrder">
+        insert into order_info
+        (
+         order_id,
+         third_id,
+         order_type,
+         creator,
+         impact_factor,
+         jcr,
+         academy_of_science_cn,
+         deadline,
+         description,
+         title,
+         deposit,
+         total_price,
+         key_word
+        )values (
+        #{newOrder.orderId},
+        #{newOrder.thirdId},
+        #{newOrder.orderType},
+        #{newOrder.creator},
+        #{newOrder.impactFactor},
+        #{newOrder.jcr},
+        #{newOrder.academyOfScienceCn},
+        #{newOrder.deadline},
+        #{newOrder.description},
+        #{newOrder.title},
+        #{newOrder.deposit},
+        #{newOrder.totalPrice},
+        #{newOrder.keyWord}
+        )
+    </insert>
+
+    <sql id="select-order-info">
+         order_id as orderId,
+         third_id as thirdId,
+         order_type as orderType,
+         creator as creator,
+         impact_factor as impactFactor,
+         jcr,
+         academy_of_science_cn as academyOfScienceCn,
+         deadline,
+         description,
+         title,
+         deposit,
+         total_price as totalPrice,
+         key_word as keyWord
+
+    </sql>
+
+    <select id="selectById" resultType="com.brs.orderinfo.api.domain.OrderDomain">
+        SELECT
+            <include refid="select-order-info"></include>
+        FROM
+        order_info
+        WHERE
+        order_id = #{orderId}
+    </select>
+
+</mapper>

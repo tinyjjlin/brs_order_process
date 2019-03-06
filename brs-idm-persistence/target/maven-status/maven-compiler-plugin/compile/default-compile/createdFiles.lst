@@ -1,0 +1,6 @@
+com\brs\idm\persistence\dao\RoleDao.class
+com\brs\idm\persistence\dao\UserDao.class
+com\brs\idm\persistence\dao\PrivilegeDao.class
+com\brs\idm\persistence\entity\PrivilegeEntity.class
+com\brs\idm\persistence\entity\RoleEntity.class
+com\brs\idm\persistence\entity\UserEntity.class

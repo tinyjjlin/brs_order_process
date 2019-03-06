@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: brs-idm-rest
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: j100057
+Implementation-Vendor-Id: com.brs
+Created-By: Apache Maven 3.6.0
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/brs-order/brs-idm-rest
+

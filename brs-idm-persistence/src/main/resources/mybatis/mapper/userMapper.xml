@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brs.idm.persistence.dao.UserDao">
+    <!--
+    @Insert("insert into brs_idm_user (id_,first_,last_,display_name_,pwd_,email_,picture_id_)"+
+    "values(#{user.id},#{user.firstName},#{user.lastName},#{user.displayName},#{user.pwd},#{user.email},#{user.pictureId})")
+     -->
+    <sql id="insert_column">
+        ID_,
+        FIRST_,
+        LAST_,
+        PWD_,
+        EMAIL_,
+        PICTURE_ID_
+    </sql>
+    <insert id="insertUser">
+        insert into act_id_user
+         (<include refid="insert_column"></include> )
+          values(#{user.userId},#{user.firstName},#{user.lastName},#{user.pwd},#{user.email},#{user.pictureId})
+    </insert>
+    <insert id="bindUserRole">
+        INSERT INTO act_id_membership
+        (USER_ID_,GROUP_ID_)
+        VALUES
+        <foreach collection="roleIdList" item="item" index="index" separator=",">
+            <if test="userId != null">
+                (#{userId},#{item})
+            </if>
+        </foreach>
+    </insert>
+    <delete id="unbindUserAllRole">
+        DELETE FROM act_id_membership
+        WHERE  USER_ID_ = #{userId}
+    </delete>
+
+    <sql id="select-userInfo">
+        act_id_user.ID_ as userId,
+        act_id_user.FIRST_ as firstName,
+        act_id_user.LAST_ as lastName,
+        act_id_user.EMAIL_ as email,
+        act_id_user.PICTURE_ID_ as pictureId,
+
+        act_id_group.ID_ as roleId
+
+    </sql>
+    <sql id="where-loginUserInfo">
+        <trim prefix="WHERE" suffixOverrides="AND | OR">
+            act_id_user.ID_ = #{userId}
+        </trim>
+    </sql>
+    <resultMap id="loginUserInfoMap" type="com.brs.idm.api.dto.UserInfoDTO" autoMapping="true">
+        <id property="userId" column="userId"></id>
+       <collection property="roleIds" ofType="java.lang.String" autoMapping="true">
+           <id property="roleId" column="roleId"></id>
+       </collection>
+    </resultMap>
+    <select id="selectUserInfo" resultMap="loginUserInfoMap">
+      SELECT
+        <include refid="select-userInfo"></include>
+      FROM
+        act_id_user
+      LEFT JOIN
+        act_id_membership AS bim
+      ON
+        act_id_user.ID_ = bim.USER_ID_
+      LEFT JOIN
+         act_id_group
+      ON
+          bim.GROUP_ID_ = act_id_group.ID_
+      WHERE     act_id_user.ID_ = #{userId}
+    </select>
+
+    <select id="exists" resultType="java.lang.Integer">
+        select
+        count(act_id_user.ID_) as num
+        FROM act_id_user
+        where act_id_user.ID_ = #{userId}
+
+    </select>
+    <select id="selectUserAll" resultType="com.brs.idm.api.dto.LoginUserRepresentation">
+        SELECT
+          act_id_user.id_ as userId,
+          act_id_user.first_ as firstName,
+          act_id_user.last_ as lastName,
+          act_id_user.email_ as email,
+          act_id_user.picture_id_ as pictureId
+        FROM
+          act_id_user
+    </select>
+    <select id="selectUserListByRoleName" resultType="java.lang.String">
+        SELECT
+          act_id_user.id_ as userId
+        FROM
+          act_id_user
+        LEFT JOIN
+          act_id_membership AS aim
+        ON
+          act_id_user.ID_ = aim.USER_ID_
+        LEFT JOIN
+          act_id_group
+        ON
+          aim.GROUP_ID_ = act_id_group.ID_
+        WHERE act_id_group.NAME_ = #{roleName}
+
+    </select>
+
+    <select id="selectUserBindRole" resultType="com.brs.idm.api.dto.RoleDTO">
+        select ID_ as roleId,NAME_ as roleName
+        from act_id_group
+        LEFT JOIN    act_id_membership AS aim
+        ON aim.GROUP_ID_ = act_id_group.ID_
+        WHERE  aim.USER_ID_ = #{userId}
+
+    </select>
+
+
+
+
+    <sql id="select-user-role-info">
+        usert.ID_ as userId,
+        usert.FIRST_ as firstName,
+        usert.LAST_ as lastName,
+        usert.EMAIL_ as email,
+        usert.PICTURE_ID_ as pictureId,
+
+        role.ID_ as roleId,
+        role.NAME_ as roleName
+
+    </sql>
+    <sql id="where-user-role">
+        <trim prefix="WHERE" suffixOverrides="AND | OR">
+            <if test="userId != null"> usert.ID_ =#{userId}</if>
+        </trim>
+    </sql>
+    <resultMap id="userRoleMap" type="com.brs.idm.api.dto.UserRoleDTO" autoMapping="true">
+        <id property="userId" column="userId"></id>
+
+        <collection property="roleList" ofType="com.brs.idm.api.dto.RoleDTO" autoMapping="true">
+            <id property="roleId" column="roleId"></id>
+        </collection>
+    </resultMap>
+    <select id="selectUserRoleList" resultMap="userRoleMap">
+        SELECT
+        <include refid="select-user-role-info"></include>
+        FROM
+        act_id_user as usert
+        LEFT JOIN
+        act_id_membership AS bim
+        ON
+        usert.ID_ = bim.USER_ID_
+        LEFT JOIN
+        act_id_group as role
+        ON
+        bim.GROUP_ID_ = role.ID_
+        <include refid="where-user-role"></include>
+    </select>
+
+
+    <select id="selectUserWithRoleList" resultType="com.brs.idm.persistence.entity.UserEntity">
+        SELECT
+          usert.ID_ as userId,
+          usert.FIRST_ as firstName,
+          usert.LAST_ as lastName
+        FROM
+          act_id_user as usert
+        LEFT JOIN act_id_membership as bim
+        ON bim.USER_ID_ = usert.ID_
+        WHERE
+           bim.GROUP_ID_ = #{roleId}
+    </select>
+    <select id="selectUserListByRoleId" resultType="java.lang.String">
+          SELECT
+          act_id_user.id_ as userId
+        FROM
+          act_id_user
+        LEFT JOIN
+          act_id_membership AS aim
+        ON
+          act_id_user.ID_ = aim.USER_ID_
+        LEFT JOIN
+          act_id_group
+        ON
+          aim.GROUP_ID_ = act_id_group.ID_
+        WHERE act_id_group.ID_ = #{roleId}
+
+
+
+
+    </select>
+
+
+</mapper>

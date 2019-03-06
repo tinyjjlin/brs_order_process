@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brs.idm.persistence.dao.RoleDao">
+
+    <sql id="select-role-priv-info">
+        role.ID_ as roleId,
+        role.NAME_ as roleName,
+        priv.ID_ as privID,
+        priv.NAME_ as privNAME
+    </sql>
+     <sql id="where-role">
+         <trim prefix="WHERE" suffixOverrides="AND | OR">
+             <if test="roleId != null">role.ID_ =#{roleId}</if>
+         </trim>
+     </sql>
+
+
+    <resultMap id="rolePrivilegeMap" type="com.brs.idm.api.dto.RolePrivilegeDTO">
+        <id property="roleId" column="roleId"></id>
+        <collection property="privilegeList" ofType="com.brs.idm.api.dto.PrivilegeDTO" autoMapping="true">
+            <id property="privId" column="privId"></id>
+        </collection>
+    </resultMap>
+    <select id="selectRolePrivilegeList" resultMap="rolePrivilegeMap">
+        SELECT
+         <include refid="select-role-priv-info"></include>
+        FROM
+           act_id_group as role
+        LEFT  JOIN
+           act_id_priv_mapping as pm
+        ON
+            role.ID_ = pm.GROUP_ID_
+        LEFT JOIN
+            act_id_priv as priv
+        ON
+            priv.ID_ = pm.PRIV_ID_
+        <include refid="where-role"></include>
+    </select>
+</mapper>

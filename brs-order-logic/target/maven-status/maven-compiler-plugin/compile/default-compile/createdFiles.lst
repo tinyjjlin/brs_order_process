@@ -1,0 +1,12 @@
+com\brs\order\service\model\HistoricOrderRecordPaging.class
+com\brs\order\service\model\Paging.class
+com\brs\order\service\OrderServiceImpl.class
+com\brs\order\service\OrderProcessService.class
+com\brs\order\service\AssignTaskUserService.class
+com\brs\order\service\model\HistoricOrderRecord.class
+com\brs\order\service\model\OrderTaskRecordPaging.class
+com\brs\order\service\model\OrderTaskRepresentation.class
+com\brs\order\service\OrderProcessServiceImpl.class
+com\brs\order\service\OrderService.class
+com\brs\order\service\model\OrderProcessConstant.class
+com\brs\order\service\model\TaskRepresentation.class

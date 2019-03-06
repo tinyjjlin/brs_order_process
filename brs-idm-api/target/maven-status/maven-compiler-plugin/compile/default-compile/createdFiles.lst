@@ -1,0 +1,10 @@
+com\brs\idm\api\Role.class
+com\brs\idm\api\dto\LoginUserRepresentation.class
+com\brs\idm\api\dto\LoginUserDto.class
+com\brs\idm\api\dto\LoginUserInfoRepresentation.class
+com\brs\idm\api\GenerateId.class
+com\brs\idm\api\dto\PrivilegeRepresentation.class
+com\brs\idm\api\IdmService.class
+com\brs\idm\api\Privilege.class
+com\brs\idm\api\dto\RoleRepresentation.class
+com\brs\idm\api\User.class

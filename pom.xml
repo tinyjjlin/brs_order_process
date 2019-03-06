@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.brs</groupId>
+    <artifactId>brs-order</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>brs-order-api</module>
+        <module>brs-order-logic</module>
+        <module>brs-order-persistence</module>
+        <module>brs-order-rest</module>
+        <module>brs-order-app</module>
+        <module>brs-idm-common</module>
+        <module>brs-idm-api</module>
+        <module>brs-idm-logic</module>
+        <module>brs-idm-rest</module>
+        <module>brs-idm-persistence</module>
+        <module>brs-idm-app</module>
+        <module>brs-periodical-api</module>
+        <module>brs-periodical-logic</module>
+        <module>brs-periodical-persistence</module>
+        <module>brs-periodical-rest</module>
+        <module>brs-orderinfo-api</module>
+        <module>brs-orderinfo-logic</module>
+        <module>brs-orderinfo-persistence</module>
+        <module>brs-orderinfo-rest</module>
+        <module>brs-orderprocess-api</module>
+        <module>brs-orderprocess-logic</module>
+        <module>brs-orderprocess-rest</module>
+        <module>brs-orderprocess-app</module>
+
+
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+
+        <!-- swagger生成接口API -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <!-- 接口API生成html文档 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <!-- mybatis-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- aop-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.unboundid/unboundid-ldapsdk -->
+        <dependency>
+            <groupId>com.unboundid</groupId>
+            <artifactId>unboundid-ldapsdk</artifactId>
+            <version>4.0.9</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ldap    -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-ldap</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-order-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-order-logic</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-order-persistence</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-order-rest</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-idm-logic</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-idm-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-idm-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-idm-persistence</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brs</groupId>
+                <artifactId>brs-idm-rest</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <!--flowable工作流依赖-->
+            <!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter</artifactId>
+                <version>6.4.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

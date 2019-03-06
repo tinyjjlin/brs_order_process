@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-app" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-app" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderinfo-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderinfo-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderinfo-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderinfo-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderprocess-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderprocess-app" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderprocess-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-orderprocess-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-periodical-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-periodical-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-periodical-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-periodical-rest" charset="UTF-8" />
+  </component>
+</project>

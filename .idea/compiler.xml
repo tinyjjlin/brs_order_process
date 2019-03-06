@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="brs-idm-api" />
+        <module name="brs-idm-app" />
+        <module name="brs-idm-common" />
+        <module name="brs-idm-logic" />
+        <module name="brs-idm-persistence" />
+        <module name="brs-idm-rest" />
+        <module name="brs-order-app" />
+        <module name="brs-orderinfo-api" />
+        <module name="brs-orderinfo-logic" />
+        <module name="brs-orderinfo-persistence" />
+        <module name="brs-orderinfo-rest" />
+        <module name="brs-orderprocess-api" />
+        <module name="brs-orderprocess-app" />
+        <module name="brs-orderprocess-logic" />
+        <module name="brs-orderprocess-rest" />
+        <module name="brs-periodical-api" />
+        <module name="brs-periodical-logic" />
+        <module name="brs-periodical-persistence" />
+        <module name="brs-periodical-rest" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="brs-order-api" target="1.8" />
+      <module name="brs-order-common" target="1.8" />
+      <module name="brs-order-logic" target="1.8" />
+      <module name="brs-order-persistence" target="1.8" />
+      <module name="brs-order-rest" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

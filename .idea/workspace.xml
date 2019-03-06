@@ -1,0 +1,1214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="45874737-d77c-440a-92ef-7f52da9a4b71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/brs-order-api/src/main/resources/processes/BrsOrderProcess_01.bpmn20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/domain/OrderDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/resources/mybatis/db/brs_order_create.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/resources/mybatis/mapper/orderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/AbstractCandidateUserHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/ArticleStatusConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessHandlerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessQueryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessVariable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderStatusConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderDescription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderInfoWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/Paging.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/TaskInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-app/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-app/src/main/java/com/brs/orderprocess/app/BrsOrderApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-app/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/DataDirectorCandidateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/EditorDirectorCandidateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/ManagerCandidateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessHandlerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessQueryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/SubmitterCandidateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderProcessController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderQueryContorller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/vo/NewOrderVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-order-api/src/main/resources/processes/BrsOrderProcess.bpmn20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brs-order-api/src/main/resources/processes/BrsOrderProcess.bpmn20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/ProcessQueryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/ProcessQueryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-order-rest/src/main/java/com/brs/order/rest/api/OrderProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brs-order-rest/src/main/java/com/brs/order/rest/api/OrderProcessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/ArticleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/ArticleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-orderprocess-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brs-orderprocess-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-orderprocess-logic/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brs-orderprocess-logic/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brs-orderprocess-rest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brs-orderprocess-rest/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/brs-order-logic/target/" />
+    <ignored path="$PROJECT_DIR$/brs-order-persistence/target/" />
+    <ignored path="$PROJECT_DIR$/brs-order-rest/target/" />
+    <ignored path="$PROJECT_DIR$/brs-order-common/target/" />
+    <ignored path="$PROJECT_DIR$/brs-order-api/target/" />
+    <ignored path="$PROJECT_DIR$/brs-idm-common/target/" />
+    <ignored path="$PROJECT_DIR$/brs-idm-api/target/" />
+    <ignored path="$PROJECT_DIR$/brs-idm-logic/target/" />
+    <ignored path="$PROJECT_DIR$/brs-idm-rest/target/" />
+    <ignored path="$PROJECT_DIR$/brs-idm-persistence/target/" />
+    <ignored path="$PROJECT_DIR$/brs-idm-app/target/" />
+    <ignored path="$PROJECT_DIR$/brs-order-app/target/" />
+    <ignored path="$PROJECT_DIR$/brs-periodical-api/target/" />
+    <ignored path="$PROJECT_DIR$/brs-periodical-logic/target/" />
+    <ignored path="$PROJECT_DIR$/brs-periodical-persistence/target/" />
+    <ignored path="$PROJECT_DIR$/brs-periodical-rest/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderinfo-api/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderinfo-logic/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderinfo-rest/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderinfo-persistence/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderprocess-logic/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderprocess-api/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderprocess-rest/target/" />
+    <ignored path="$PROJECT_DIR$/brs-orderprocess-app/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-919185652">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="178" />
+          <entry key="sql" value="1" />
+          <entry key="xml" value="55" />
+          <entry key="yml" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="178" />
+          <entry key="SQL" value="1" />
+          <entry key="XML" value="55" />
+          <entry key="YAML" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="44" />
+          <entry key="java" value="5631" />
+          <entry key="xml" value="1311" />
+          <entry key="yml" value="64" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="5631" />
+          <entry key="PLAIN_TEXT" value="44" />
+          <entry key="SQL" value="27" />
+          <entry key="XML" value="1284" />
+          <entry key="YAML" value="64" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1858582683">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="358" />
+          <entry key="java" value="20279" />
+          <entry key="sql" value="1" />
+          <entry key="txt" value="160" />
+          <entry key="xml" value="1664" />
+          <entry key="yml" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="20279" />
+          <entry key="PLAIN_TEXT" value="518" />
+          <entry key="SQL" value="51" />
+          <entry key="XML" value="1614" />
+          <entry key="YAML" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="8" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="375" />
+          <entry key="sql" value="2" />
+          <entry key="xml" value="72" />
+          <entry key="yml" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="8" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="375" />
+          <entry key="SQL" value="2" />
+          <entry key="XML" value="72" />
+          <entry key="YAML" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.create.new" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessHandlerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3960">
+              <caret line="179" column="53" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-orderprocess-app/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-order-app/src/main/java/com/brs/order/application/BrsOrderApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/brs-orderprocess-app/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-orderprocess-app/src/main/java/com/brs/orderprocess/app/BrsOrderApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="12" column="103" selection-start-line="12" selection-start-column="99" selection-end-line="12" selection-end-column="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/ArticleDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-order-app/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="26" column="21" selection-start-line="18" selection-start-column="6" selection-end-line="26" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/ArticleStatusConstant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderStatusConstant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/ProcessHandlerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="156" column="37" selection-start-line="152" selection-start-column="6" selection-end-line="156" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>startProcess</find>
+      <find>getHistoricOrderRecordList</find>
+      <find>getTaskByTaskId</find>
+      <find>brsOrderProcess</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/ArticleService.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/AuthorService.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-persistence/pom.xml" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/AuthorDao.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-logic/pom.xml" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-logic/src/main/java/com/brs/orderinfo/service/ArticleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-logic/src/main/java/com/brs/orderinfo/service/AuthorSerivceImpl.java" />
+        <option value="$PROJECT_DIR$/brs-periodical-logic/src/main/java/com/brs/periodical/service/PeriodicalServiceImpl.java" />
+        <option value="$PROJECT_DIR$/brs-order-api/src/main/resources/processes/BrsOrderProcess_01.bpmn20.xml" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/ProcessHandlerService.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderStausConstant.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderStatusConstant.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/ProcessVariable.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessVariable.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/CandidateUserHandler.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/AbstractCandidateUserHandler.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/ManagerCandidateUserHandler.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/EditorDirectorCandidateUser.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/ManagerCandidateUser.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/DataDirectorCandidateUser.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/SubmitterCandidateUser.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/HandleOrderProcessService.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessHandlerService.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/OrderMapper.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/OrderDao.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/resources/mybatis/mapper/orderMapper.xml" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/pom.xml" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/Order.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/domain/OrderDomain.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/dto/OrderTaskRepresentation.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderDescription.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/TaskInfo.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/dto/OrderInfoWrapper.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderInfoWrapper.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessQueryService.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/pom.xml" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/OrderService.java" />
+        <option value="$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/ProcessQueryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessQueryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-rest/pom.xml" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderQueryContorller.java" />
+        <option value="$PROJECT_DIR$/brs-order-rest/src/main/java/com/brs/order/rest/api/OrderProcessController.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/vo/NewOrderDto.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/vo/NewOrderVo.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderProcessController.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessConstant.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/ArticleStatusConstant.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessHandlerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-app/pom.xml" />
+        <option value="$PROJECT_DIR$/brs-orderprocess-app/src/main/java/com/brs/orderprocess/app/BrsOrderApplication.java" />
+        <option value="$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/ArticleDao.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="C:\dev\storage\maven\config\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="brs-periodical-api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="94" />
+    <option name="y" value="677" />
+    <option name="width" value="1825" />
+    <option name="height" value="1017" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="brs_order" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brs_order" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551867501346" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/brs-orderinfo-api/pom.xml" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.brs.order.service" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.brs" />
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\work\brs_order\brs-orderprocess-app\src\main\resources" />
+      <recent name="C:\dev\work\brs_order\brs-orderprocess-rest\src\main\java\com\brs\orderprocess\api" />
+      <recent name="C:\dev\work\brs_order\brs-orderprocess-api\src\main\java\com\brs\orderprcoess" />
+      <recent name="C:\dev\work\brs_order\brs-orderinfo-persistence\src\main\resources" />
+      <recent name="C:\dev\work\brs_order\brs-order-api\src\main\resources\processes" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.brs.orderprocess.app" />
+      <recent name="com.brs.orderprocess.vo" />
+      <recent name="com.brs.orderprcoess.dto" />
+      <recent name="com.brs.orderinfo.api" />
+      <recent name="com.brs.orderinfo.persistence.dao" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\work\brs_order\brs-order-api\src\main" />
+      <recent name="C:\dev\work\brs_order\brs-order-api\src\main\java\com\brs\order\api" />
+      <recent name="C:\dev\work\brs_order\brs-order-api\src\main\java\com\brs\order\api\service" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BrsOrderApplication">
+    <configuration name="OrderProcessServicetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="brs-order-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.brs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.brs" />
+      <option name="MAIN_CLASS_NAME" value="com.brs.OrderProcessServicetTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderProcessServicetTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="brs-order-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.brs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.brs" />
+      <option name="MAIN_CLASS_NAME" value="com.brs.OrderProcessServicetTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProcessServiceTest.testHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="brs-order-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.brs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.brs" />
+      <option name="MAIN_CLASS_NAME" value="com.brs.ProcessServiceTest" />
+      <option name="METHOD_NAME" value="testHistory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BrsIdmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="brs-idm-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.brs.idm.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.brs.idm.application.BrsIdmApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BrsOrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="brs-order-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.brs.order.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.brs.order.application.BrsOrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ProcessServiceTest.testHistory" />
+      <item itemvalue="JUnit.OrderProcessServicetTest" />
+      <item itemvalue="Spring Boot.BrsOrderApplication" />
+      <item itemvalue="Spring Boot.BrsIdmApplication" />
+      <item itemvalue="JUnit.OrderProcessServicetTest.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BrsOrderApplication" />
+        <item itemvalue="Spring Boot.BrsIdmApplication" />
+        <item itemvalue="JUnit.OrderProcessServicetTest.test" />
+        <item itemvalue="JUnit.ProcessServiceTest.testHistory" />
+        <item itemvalue="JUnit.OrderProcessServicetTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45874737-d77c-440a-92ef-7f52da9a4b71" name="Default Changelist" comment="" />
+      <created>1550798928968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550798928968</updated>
+      <workItem from="1550798946092" duration="25752000" />
+      <workItem from="1551063526487" duration="6690000" />
+      <workItem from="1551076839096" duration="143000" />
+      <workItem from="1551077119297" duration="12024000" />
+      <workItem from="1551142743204" duration="26887000" />
+      <workItem from="1551228052028" duration="13000" />
+      <workItem from="1551228094155" duration="3194000" />
+      <workItem from="1551232865667" duration="29822000" />
+      <workItem from="1551313870232" duration="20901000" />
+      <workItem from="1551402219150" duration="17021000" />
+      <workItem from="1551662332703" duration="5114000" />
+      <workItem from="1551765412512" duration="6750000" />
+      <workItem from="1551833018944" duration="8013000" />
+    </task>
+    <task id="LOCAL-00001" summary="实现订单流程，查看未处理的，已处理的订单。">
+      <created>1551177004284</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551177004284</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add brs_order_create.sql version 1">
+      <created>1551177281849</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1551177281849</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modify order dto by role.">
+      <created>1551265899776</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1551265899776</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add article author module.">
+      <created>1551439999334</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1551439999334</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 14h 53m 40s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 14h 57m 01s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OrderProcessServicetTest - 2019.02.27 at 14h 58m 14s.xml">
+      <configuration name="OrderProcessServicetTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 14h 58m 59s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 15h 01m 20s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 15h 04m 17s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 15h 11m 33s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProcessServiceTest_testHistory - 2019.02.27 at 15h 13m 42s.xml">
+      <configuration name="ProcessServiceTest.testHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OrderProcessServicetTest_test - 2019.03.01 at 10h 28m 09s.xml">
+      <configuration name="OrderProcessServicetTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OrderProcessServicetTest_test - 2019.03.01 at 10h 30m 46s.xml">
+      <configuration name="OrderProcessServicetTest.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="162324000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="170" y="445" width="1825" height="1017" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7892074" visible="true" weight="0.2611898" />
+      <window_info id="Structure" order="1" sideWeight="0.21079259" side_tool="true" visible="true" weight="0.2611898" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3276644" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8841623" weight="0.24489796" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4973822" weight="0.32879817" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" sideWeight="0.49803665" weight="0.30272108" />
+      <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49934554" weight="0.32894737" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986911" weight="0.32894737" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5026178" side_tool="true" weight="0.32894737" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49410996" weight="0.1292517" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" sideWeight="0.4986911" weight="0.32894737" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.15014164" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.26143792" visible="true" weight="0.2853403" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.7385621" side_tool="true" visible="true" weight="0.2853403" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8841623" weight="0.47916666" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4973822" visible="true" weight="0.32894737" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" sideWeight="0.49803665" weight="0.32894737" />
+      <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49934554" weight="0.32894737" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986911" weight="0.32894737" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5026178" side_tool="true" visible="true" weight="0.32894737" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49410996" weight="0.40460527" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" sideWeight="0.4986911" weight="0.32894737" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.046465967" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现订单流程，查看未处理的，已处理的订单。" />
+    <MESSAGE value="add brs_order_create.sql version 1" />
+    <MESSAGE value="modify order dto by role." />
+    <MESSAGE value="add article author module." />
+    <option name="LAST_COMMIT_MESSAGE" value="add article author module." />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/model/OrderDescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/model/OrderTaskRecordPaging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="66" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/ArticleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/Order.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/domain/OrderDomain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/dto/OrderTaskRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/model/HistoricOrderRecordPaging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/model/HistoricOrderRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/model/TaskRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/dto/OrderInfoWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/HistoricOrderRecord.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderTaskRecordPaging.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/HistoricOrderRecordPaging.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderTaskRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/TaskRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderDescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/Paging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/TaskInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/OrderRecordQueryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="36" column="36" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/ProcessQueryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="13" selection-start-line="13" selection-end-line="44" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessQueryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/model/OrderInfoWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-logic/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/AuthorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" selection-start-line="12" selection-end-line="22" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderinfo-api/src/main/java/com/brs/orderinfo/api/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/ProcessQueryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="200" column="51" selection-end-line="249" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/SubmitterCandidateUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessQueryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-625">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-rest/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-rest/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderQueryContorller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1678">
+          <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-rest/src/main/java/com/brs/order/rest/api/OrderUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-rest/src/main/java/com/brs/order/rest/api/OrderProcessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="216" column="5" selection-start-line="121" selection-end-line="216" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-api/src/main/java/com/brs/order/api/vo/NewOrderDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/vo/NewOrderVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-rest/src/main/java/com/brs/order/rest/api/OrderQueryContorller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1363">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-rest/src/main/java/com/brs/orderprocess/api/api/OrderProcessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-909">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderProcessConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/OrderStatusConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-logic/src/main/java/com/brs/order/service/ProcessHandlerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="156" column="37" selection-start-line="152" selection-start-column="6" selection-end-line="156" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-api/src/main/java/com/brs/orderprcoess/api/ArticleStatusConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-logic/src/main/java/com/brs/orderprocess/service/OrderProcessHandlerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3960">
+          <caret line="179" column="53" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-app/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="21" selection-start-line="18" selection-start-column="6" selection-end-line="26" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-app/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-order-app/src/main/java/com/brs/order/application/BrsOrderApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-app/src/main/java/com/brs/orderprocess/app/BrsOrderApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="103" selection-start-line="12" selection-start-column="99" selection-end-line="12" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderinfo-persistence/src/main/java/com/brs/orderinfo/persistence/dao/ArticleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs-orderprocess-app/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>brs-idm-app:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|brs-idm-app</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

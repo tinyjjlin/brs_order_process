@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="brsOrderProcess_01" name="BrsOrderProcess2" isExecutable="true">
+    <documentation>贝若偲订单流程</documentation>
+    <startEvent id="orderStartEvent" name="orderStartEvent" flowable:initiator="client">
+      <documentation>订单流程发起事件</documentation>
+    </startEvent>
+    <userTask id="confirmOrderTask" name="confirmOrderTask" flowable:assignee="${manager}">
+      <documentation>由经理确认订单任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="dispatchOrderTask" name="dispatchOrderTask" flowable:assignee="${editorialDirector}">
+      <documentation>编辑主管分发订单任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="handleEditTask" name="handleEditTask" flowable:assignee="${editor}">
+      <documentation>编辑人员撰写文章</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-9C0938F1-6FB5-4D1F-9BB2-1741A3FB4F7F" sourceRef="dispatchOrderTask" targetRef="handleEditTask"></sequenceFlow>
+    <userTask id="handleContributeTask" name="handleContributeTask" flowable:assignee="${submitter}">
+      <documentation>投稿人员进行投稿任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="handleDataTask" name="handleDataTask" flowable:assignee="${dataProcessor}">
+      <documentation>实验室人员处理数据</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-288B4ADC-B8AA-42F7-8C80-5864E1E6A1E3" sourceRef="handleEditTask" targetRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611"></sequenceFlow>
+    <exclusiveGateway id="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611"></exclusiveGateway>
+    <endEvent id="sid-E446E52E-5388-4110-9E53-CC832CF2025A"></endEvent>
+    <sequenceFlow id="sid-B9D28138-9D2E-48A4-935B-C353C18C22B2" sourceRef="handleContributeTask" targetRef="sid-E446E52E-5388-4110-9E53-CC832CF2025A"></sequenceFlow>
+    <userTask id="dispatchDataTask" name="dispatchDataTask" flowable:assignee="${dataDirector}">
+      <documentation>分配数据处理任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-BE84E62C-02E8-4232-8022-3BA022A7FB34" sourceRef="dispatchDataTask" targetRef="handleDataTask"></sequenceFlow>
+    <sequenceFlow id="sid-64519F55-6309-4BAB-8B1E-2526A12FEC1A" sourceRef="handleDataTask" targetRef="handleEditTask"></sequenceFlow>
+    <sequenceFlow id="sid-3A9EE871-AECB-4D55-8FD4-DA8C5905D178" sourceRef="orderStartEvent" targetRef="confirmOrderTask"></sequenceFlow>
+    <sequenceFlow id="sid-2B04C388-2686-46E8-AE2A-126D5BAF4DC8" sourceRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" targetRef="handleContributeTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${editStatus == '撰写完'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-C191EE93-0622-447B-BC16-E6697F5D0E4C" sourceRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" targetRef="handleEditTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${editStatus == '修改'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-21B28251-82DD-43AC-AA2E-37410C86F964" sourceRef="confirmOrderTask" targetRef="dispatchOrderTask"></sequenceFlow>
+    <sequenceFlow id="sid-8DDA9FC4-B7C3-4E95-8CFB-3022AA2CA7C8" sourceRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" targetRef="dispatchDataTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${editStatus =='草稿'}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_brsOrderProcess">
+    <bpmndi:BPMNPlane bpmnElement="brsOrderProcess_01" id="BPMNPlane_brsOrderProcess">
+      <bpmndi:BPMNShape bpmnElement="orderStartEvent" id="BPMNShape_orderStartEvent">
+        <omgdc:Bounds height="30.0" width="30.0" x="200.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="confirmOrderTask" id="BPMNShape_confirmOrderTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="238.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dispatchOrderTask" id="BPMNShape_dispatchOrderTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="238.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleEditTask" id="BPMNShape_handleEditTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="450.0" y="235.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleContributeTask" id="BPMNShape_handleContributeTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="885.0" y="238.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleDataTask" id="BPMNShape_handleDataTask">
+        <omgdc:Bounds height="74.0" width="99.0" x="450.5" y="420.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" id="BPMNShape_sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611">
+        <omgdc:Bounds height="40.0" width="40.0" x="690.0" y="258.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E446E52E-5388-4110-9E53-CC832CF2025A" id="BPMNShape_sid-E446E52E-5388-4110-9E53-CC832CF2025A">
+        <omgdc:Bounds height="28.0" width="28.0" x="1030.0" y="264.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dispatchDataTask" id="BPMNShape_dispatchDataTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="660.0" y="417.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-9C0938F1-6FB5-4D1F-9BB2-1741A3FB4F7F" id="BPMNEdge_sid-9C0938F1-6FB5-4D1F-9BB2-1741A3FB4F7F">
+        <omgdi:waypoint x="419.94999999999925" y="276.84615384615387"></omgdi:waypoint>
+        <omgdi:waypoint x="449.99999999999847" y="276.1526923076923"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-BE84E62C-02E8-4232-8022-3BA022A7FB34" id="BPMNEdge_sid-BE84E62C-02E8-4232-8022-3BA022A7FB34">
+        <omgdi:waypoint x="660.0" y="457.0"></omgdi:waypoint>
+        <omgdi:waypoint x="549.4499999999439" y="457.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-3A9EE871-AECB-4D55-8FD4-DA8C5905D178" id="BPMNEdge_sid-3A9EE871-AECB-4D55-8FD4-DA8C5905D178">
+        <omgdi:waypoint x="215.0" y="149.94999831086483"></omgdi:waypoint>
+        <omgdi:waypoint x="215.0" y="238.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B9D28138-9D2E-48A4-935B-C353C18C22B2" id="BPMNEdge_sid-B9D28138-9D2E-48A4-935B-C353C18C22B2">
+        <omgdi:waypoint x="984.9499999999999" y="278.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1030.0" y="278.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-64519F55-6309-4BAB-8B1E-2526A12FEC1A" id="BPMNEdge_sid-64519F55-6309-4BAB-8B1E-2526A12FEC1A">
+        <omgdi:waypoint x="500.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="500.0" y="314.95000000000005"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-2B04C388-2686-46E8-AE2A-126D5BAF4DC8" id="BPMNEdge_sid-2B04C388-2686-46E8-AE2A-126D5BAF4DC8">
+        <omgdi:waypoint x="729.4880522088274" y="278.4575892857143"></omgdi:waypoint>
+        <omgdi:waypoint x="885.0" y="278.1112472160357"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-C191EE93-0622-447B-BC16-E6697F5D0E4C" id="BPMNEdge_sid-C191EE93-0622-447B-BC16-E6697F5D0E4C">
+        <omgdi:waypoint x="707.8488828345685" y="260.15093537653735"></omgdi:waypoint>
+        <omgdi:waypoint x="549.9499999999999" y="241.80391941740723"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-288B4ADC-B8AA-42F7-8C80-5864E1E6A1E3" id="BPMNEdge_sid-288B4ADC-B8AA-42F7-8C80-5864E1E6A1E3">
+        <omgdi:waypoint x="549.9499999999987" y="276.33965517241376"></omgdi:waypoint>
+        <omgdi:waypoint x="630.5" y="278.5"></omgdi:waypoint>
+        <omgdi:waypoint x="690.5" y="278.5"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-21B28251-82DD-43AC-AA2E-37410C86F964" id="BPMNEdge_sid-21B28251-82DD-43AC-AA2E-37410C86F964">
+        <omgdi:waypoint x="264.949999999976" y="278.0"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="278.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-8DDA9FC4-B7C3-4E95-8CFB-3022AA2CA7C8" id="BPMNEdge_sid-8DDA9FC4-B7C3-4E95-8CFB-3022AA2CA7C8">
+        <omgdi:waypoint x="710.431654676259" y="297.51130481667866"></omgdi:waypoint>
+        <omgdi:waypoint x="710.0034050179212" y="417.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

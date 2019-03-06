@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="brsOrderProcess" name="BrsOrderProcess" isExecutable="true">
+    <documentation>贝若偲订单流程</documentation>
+    <startEvent id="orderStartEvent" name="orderStartEvent" flowable:initiator="${client}">
+      <documentation>订单流程发起事件</documentation>
+    </startEvent>
+    <userTask id="confirmOrderTask" name="confirmOrderTask" flowable:candidateUsers="manager">
+      <documentation>由经理确认订单任务</documentation>
+    </userTask>
+    <userTask id="dispatchOrderTask" name="dispatchOrderTask" flowable:candidateUsers="editorDirector">
+      <documentation>编辑主管分发订单任务</documentation>
+    </userTask>
+    <userTask id="handleOrderTask" name="handleOrderTask" flowable:assignee="${editor}">
+      <documentation>编辑人员处理订单流程</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611"></exclusiveGateway>
+    <sequenceFlow id="flow2" name="flow2" sourceRef="confirmOrderTask" targetRef="dispatchOrderTask"></sequenceFlow>
+    <userTask id="createNewArticleTask" name="createNewArticleTask" flowable:assignee="${editor}">
+      <documentation>编辑新建文章任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="writeDraftTask" name="writeDraftTask" flowable:assignee="${editor}">
+      <documentation>编辑出草图任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="dispacthDataTask" name="dispacthDataTask" flowable:candidateUsers="dataDirector">
+      <documentation>分配数据处理任务</documentation>
+    </userTask>
+    <userTask id="handleDataTask" name="handleDataTask" flowable:assignee="${dataProcessor}">
+      <documentation>处理数据任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="modifyArticleTask" name="modifyArticleTask" flowable:assignee="${editor}">
+      <documentation>修改文章任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="mergingDataTask" name="mergingDataTask" flowable:assignee="${editor}">
+      <documentation>编辑合并数据任务</documentation>
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="sid-F5A173FD-FA76-4481-B57A-4642BDDEF312"></exclusiveGateway>
+    <userTask id="handleContributeTask" name="handleContributeTask" flowable:candidateUsers="submitter">
+      <documentation>处理投稿任务</documentation>
+    </userTask>
+    <userTask id="handleFeebackTask" name="handleFeebackTask" flowable:candidateUsers="submitter">
+      <documentation>处理反馈结果任务</documentation>
+    </userTask>
+    <exclusiveGateway id="sid-95D5D5DE-5D97-474B-8A20-965D78DA21AA" default="flow15"></exclusiveGateway>
+    <serviceTask id="notifyServiceTask" name="notifyServiceTask">
+      <documentation>投稿结果反馈服务</documentation>
+    </serviceTask>
+    <endEvent id="theEndEvent" name="theEndEvent">
+      <documentation>流程结束事件</documentation>
+    </endEvent>
+    <sequenceFlow id="flow1" name="flow1" sourceRef="orderStartEvent" targetRef="confirmOrderTask"></sequenceFlow>
+    <sequenceFlow id="flow3" name="flow3" sourceRef="dispatchOrderTask" targetRef="handleOrderTask"></sequenceFlow>
+    <sequenceFlow id="flow4" name="flow4" sourceRef="handleOrderTask" targetRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611"></sequenceFlow>
+    <sequenceFlow id="flow5" name="flow5" sourceRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" targetRef="dispatchOrderTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${editorApproval=='refuse'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" name="flow6" sourceRef="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" targetRef="createNewArticleTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${editorApproval=='receive'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow7" name="flow7" sourceRef="createNewArticleTask" targetRef="writeDraftTask"></sequenceFlow>
+    <sequenceFlow id="flow8" name="flow8" sourceRef="writeDraftTask" targetRef="dispacthDataTask"></sequenceFlow>
+    <sequenceFlow id="flow9" name="flow9" sourceRef="dispacthDataTask" targetRef="handleDataTask"></sequenceFlow>
+    <sequenceFlow id="flow10" name="flow10" sourceRef="handleDataTask" targetRef="mergingDataTask"></sequenceFlow>
+    <sequenceFlow id="flow11" name="flow11" sourceRef="mergingDataTask" targetRef="handleContributeTask"></sequenceFlow>
+    <sequenceFlow id="flow12" name="flow12" sourceRef="handleContributeTask" targetRef="handleFeebackTask"></sequenceFlow>
+    <sequenceFlow id="flow13" name="flow13" sourceRef="handleFeebackTask" targetRef="notifyServiceTask"></sequenceFlow>
+    <sequenceFlow id="flow14" name="flow14" sourceRef="notifyServiceTask" targetRef="sid-95D5D5DE-5D97-474B-8A20-965D78DA21AA"></sequenceFlow>
+    <sequenceFlow id="flow15" name="flow15" sourceRef="sid-95D5D5DE-5D97-474B-8A20-965D78DA21AA" targetRef="theEndEvent"></sequenceFlow>
+    <sequenceFlow id="sid-0D26FDDD-D520-425E-B253-53CB4A7AEB66" sourceRef="sid-95D5D5DE-5D97-474B-8A20-965D78DA21AA" targetRef="modifyArticleTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${articleStatus=='modify'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-39FD2A1D-902B-4443-8DB3-CAC15F493396" sourceRef="modifyArticleTask" targetRef="sid-F5A173FD-FA76-4481-B57A-4642BDDEF312"></sequenceFlow>
+    <sequenceFlow id="sid-D312F1D6-94FB-43D5-A191-E04CD90E9A99" sourceRef="sid-F5A173FD-FA76-4481-B57A-4642BDDEF312" targetRef="handleDataTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${needModifyData}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-59C583D4-CF1E-4052-8E4F-ABD444833C35" sourceRef="sid-F5A173FD-FA76-4481-B57A-4642BDDEF312" targetRef="handleContributeTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!needModifyData}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_brsOrderProcess">
+    <bpmndi:BPMNPlane bpmnElement="brsOrderProcess" id="BPMNPlane_brsOrderProcess">
+      <bpmndi:BPMNShape bpmnElement="orderStartEvent" id="BPMNShape_orderStartEvent">
+        <omgdc:Bounds height="30.0" width="30.0" x="135.0" y="45.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="confirmOrderTask" id="BPMNShape_confirmOrderTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="20.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dispatchOrderTask" id="BPMNShape_dispatchOrderTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleOrderTask" id="BPMNShape_handleOrderTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="255.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611" id="BPMNShape_sid-DAA79FD2-8A6C-4425-970B-BAF0CCDC9611">
+        <omgdc:Bounds height="40.0" width="40.0" x="300.0" y="375.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="createNewArticleTask" id="BPMNShape_createNewArticleTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="480.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="writeDraftTask" id="BPMNShape_writeDraftTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="630.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dispacthDataTask" id="BPMNShape_dispacthDataTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="780.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleDataTask" id="BPMNShape_handleDataTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="970.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="modifyArticleTask" id="BPMNShape_modifyArticleTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="420.0" y="630.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="mergingDataTask" id="BPMNShape_mergingDataTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="570.0" y="970.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-F5A173FD-FA76-4481-B57A-4642BDDEF312" id="BPMNShape_sid-F5A173FD-FA76-4481-B57A-4642BDDEF312">
+        <omgdc:Bounds height="40.0" width="40.0" x="450.0" y="800.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleContributeTask" id="BPMNShape_handleContributeTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="570.0" y="780.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleFeebackTask" id="BPMNShape_handleFeebackTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="735.0" y="780.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-95D5D5DE-5D97-474B-8A20-965D78DA21AA" id="BPMNShape_sid-95D5D5DE-5D97-474B-8A20-965D78DA21AA">
+        <omgdc:Bounds height="40.0" width="40.0" x="765.0" y="555.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="notifyServiceTask" id="BPMNShape_notifyServiceTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="735.0" y="641.8666687011719"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="theEndEvent" id="BPMNShape_theEndEvent">
+        <omgdc:Bounds height="28.0" width="28.0" x="850.0" y="561.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow13" id="BPMNEdge_flow13">
+        <omgdi:waypoint x="785.0" y="780.0"></omgdi:waypoint>
+        <omgdi:waypoint x="785.0" y="721.8166687011718"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0D26FDDD-D520-425E-B253-53CB4A7AEB66" id="BPMNEdge_sid-0D26FDDD-D520-425E-B253-53CB4A7AEB66">
+        <omgdi:waypoint x="765.5" y="575.5"></omgdi:waypoint>
+        <omgdi:waypoint x="470.0" y="575.5"></omgdi:waypoint>
+        <omgdi:waypoint x="470.0" y="630.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow14" id="BPMNEdge_flow14">
+        <omgdi:waypoint x="785.0" y="641.8666687011719"></omgdi:waypoint>
+        <omgdi:waypoint x="785.0" y="594.9092959723487"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow15" id="BPMNEdge_flow15">
+        <omgdi:waypoint x="804.5591869398207" y="575.3782051282051"></omgdi:waypoint>
+        <omgdi:waypoint x="850.0002755524704" y="575.088851884264"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-59C583D4-CF1E-4052-8E4F-ABD444833C35" id="BPMNEdge_sid-59C583D4-CF1E-4052-8E4F-ABD444833C35">
+        <omgdi:waypoint x="489.5071931589537" y="820.4362416107383"></omgdi:waypoint>
+        <omgdi:waypoint x="569.9999999999872" y="820.1670568561873"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="164.9499993675608" y="60.0"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="60.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="320.0" y="99.95"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="320.0" y="214.95000000000002"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="255.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="320.1987562189055" y="334.95000000000005"></omgdi:waypoint>
+        <omgdi:waypoint x="320.4" y="375.4"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="339.4418412737105" y="395.5"></omgdi:waypoint>
+        <omgdi:waypoint x="436.5333251953125" y="395.5"></omgdi:waypoint>
+        <omgdi:waypoint x="436.5333251953125" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="369.95000000000005" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-39FD2A1D-902B-4443-8DB3-CAC15F493396" id="BPMNEdge_sid-39FD2A1D-902B-4443-8DB3-CAC15F493396">
+        <omgdi:waypoint x="470.1327242524917" y="709.9499999999999"></omgdi:waypoint>
+        <omgdi:waypoint x="470.4333333333333" y="800.4333333333333"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="320.4233870967742" y="414.5187147461724"></omgdi:waypoint>
+        <omgdi:waypoint x="320.1604417670683" y="480.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-D312F1D6-94FB-43D5-A191-E04CD90E9A99" id="BPMNEdge_sid-D312F1D6-94FB-43D5-A191-E04CD90E9A99">
+        <omgdi:waypoint x="470.5" y="839.4395265328769"></omgdi:waypoint>
+        <omgdi:waypoint x="470.5" y="910.86669921875"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="910.86669921875"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="970.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="320.0" y="559.95"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="630.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow10" id="BPMNEdge_flow10">
+        <omgdi:waypoint x="369.949999999656" y="1010.0"></omgdi:waypoint>
+        <omgdi:waypoint x="570.0" y="1010.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="320.0" y="709.9499999999999"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="780.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow11" id="BPMNEdge_flow11">
+        <omgdi:waypoint x="620.0" y="970.0"></omgdi:waypoint>
+        <omgdi:waypoint x="620.0" y="859.9499999999999"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="320.0" y="859.9499999999999"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="970.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow12" id="BPMNEdge_flow12">
+        <omgdi:waypoint x="669.9499999999999" y="820.0"></omgdi:waypoint>
+        <omgdi:waypoint x="735.0" y="820.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

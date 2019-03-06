@@ -1,0 +1,7 @@
+com\brs\idm\rest\dto\PrivilegeUserMappingDto.class
+com\brs\idm\rest\api\role\RoleController.class
+com\brs\idm\rest\dto\RoleUserMappingDto.class
+com\brs\idm\rest\api\login\LoginController.class
+com\brs\idm\rest\api\privilege\PrivilegeController.class
+com\brs\idm\rest\dto\PrivilegeRoleMappingDto.class
+com\brs\idm\rest\api\user\UserController.class
